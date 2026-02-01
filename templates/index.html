@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Next Word Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2>Next Word Prediction (LSTM)</h2>
+
+    <form action="/predict" method="post">
+        <textarea name="text" rows="4" placeholder="Enter seed text..." required></textarea>
+        <button type="submit">Predict Next Word</button>
+    </form>
+
+    {% if predicted_word %}
+    <div class="result">
+        <p><b>Seed Text:</b> {{ seed_text }}</p>
+        <p><b>Predicted Word:</b> <span>{{ predicted_word }}</span></p>
+    </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
